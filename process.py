@@ -7,9 +7,10 @@ key_nutrients = [
     'Calories', 'Iron', 'Zinc', 'Calcium', 'Vitamin A, RAE', 'Thiamin [Vitamin B1]',
     'Riboflavin [Vitamin B2]', 'Niacin [Vitamin B3]', 'Pantothenic acid [Vitamin B5]',
     'Vitamin B6', 'Vitamin B12 [Cobalamin]', 'Folate, DFE [Vitamin B9]', 
-    'Vitamin C [Ascorbic acid]', 'Protein', 'Carbohydrate', 'Sugars',
+    'Vitamin C [Ascorbic acid]', 'Vitamin D', 'Vitamin K', 'Vitamin E (alpha-tocopherol)',
+    'Protein', 'Carbohydrate', 'Sugars',
     'Fat', 'Saturated fatty acids', 'Monounsaturated fatty acids', 
-    'Polyunsaturated fatty acids', 'Cholesterol'
+    'Polyunsaturated fatty acids', 'Cholesterol', 'Calcium', 'Potassium', 'Magnesium', 'Selenium'
 ]
 
 # Setup argument parser
@@ -85,5 +86,5 @@ ingredients_table = df_to_org_table(ingredient_df)
 nutrients_table = df_to_org_table(nutrient_final_df)
 
 # Print the org-mode tables
-print("Ingredients Table:\n", ingredients_table)
-print("Nutrients Table:\n", nutrients_table)
+print(f"Ingredients:\n{ingredients_table}")
+print(f"Nutrients:\n{nutrients_table}")

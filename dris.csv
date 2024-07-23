@@ -1,18 +1,18 @@
 Nutrient,Highest EAR,Highest RDA/AI Males,Highest RDA/AI Females,Lowest UL,Unit
-Vitamin A,630,900,700,1700,μg
-Thiamin (B1),1.0,1.2,1.1,ND,mg
-Riboflavin (B2),1.1,1.3,1.1,ND,mg
-Niacin (B3),12,16,14,20,mg
-Pantothenic acid (B5),NE,5,5,ND,mg
-Vitamin B6,1.4,1.7,1.5,60,mg
+"Vitamin A, RAE",630,900,700,1700,μg
+"Thiamin [Vitamin B1]",1.0,1.2,1.1,ND,mg
+"Riboflavin [Vitamin B2]",1.1,1.3,1.1,ND,mg
+"Niacin [Vitamin B3]",12,16,14,20,mg
+"Pantothenic acid [Vitamin B5]",NE,5,5,ND,mg
+"Vitamin B6",1.4,1.7,1.5,60,mg
 Biotin (B7),NE,30,30,ND,μg
-Folate (B9),330,400,400,600,μg
-Cobalamin (B12),2.0,2.4,2.4,ND,μg
-Vitamin C,75,90,75,1200,mg
-Vitamin D,10,20,20,100,μg
-α-tocopherol (Vitamin E),12,15,15,600,mg
-Vitamin K,NE,120,90,ND,μg
-Choline,NE,550,425,2000,mg
+"Folate, DFE [Vitamin B9]",330,400,400,600,μg
+"Vitamin B12 [Cobalamin]",2.0,2.4,2.4,ND,μg
+"Vitamin C [Ascorbic acid]",75,90,75,1200,mg
+"Vitamin D",10,20,20,100,μg
+"Vitamin E (alpha-tocopherol)",12,15,15,600,mg
+"Vitamin K",NE,120,90,ND,μg
+"Choline",NE,550,425,2000,mg
 Calcium,1100,1300,1300,2000,mg
 Chloride,NE,2300,2300,3400,mg
 Chromium,NE,35,25,ND,μg
