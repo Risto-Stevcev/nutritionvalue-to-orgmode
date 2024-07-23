@@ -1,4 +1,6 @@
 import pandas as pd
+import argparse
+from io import StringIO
 
 # Define the list of key nutrients
 key_nutrients = [
@@ -10,9 +12,14 @@ key_nutrients = [
     'Polyunsaturated fatty acids', 'Cholesterol'
 ]
 
-# Read the entire CSV file
-csv_file = 'meal.csv'  # Path to your CSV file
-with open(csv_file, 'r') as file:
+# Setup argument parser
+parser = argparse.ArgumentParser(description='Process meal and DRI CSV files.')
+parser.add_argument('meal_csv', help='Path to the meal CSV file')
+parser.add_argument('dris_csv', help='Path to the DRIs CSV file')
+args = parser.parse_args()
+
+# Read the meal CSV file
+with open(args.meal_csv, 'r') as file:
     lines = file.readlines()
 
 # Initialize lists to hold the lines for each section
@@ -40,7 +47,6 @@ for line in lines:
         nutrient_lines.append(line.strip())
 
 # Convert lines to StringIO objects to use with pandas read_csv
-from io import StringIO
 ingredient_data = StringIO('\n'.join(ingredient_lines))
 nutrient_data = StringIO('\n'.join(nutrient_lines))
 
@@ -50,6 +56,21 @@ nutrient_df = pd.read_csv(nutrient_data)
 
 # Filter the nutrient DataFrame to only include key nutrients
 nutrient_df = nutrient_df[nutrient_df['Nutrient'].isin(key_nutrients)]
+
+# Read the DRIs CSV file
+dris_df = pd.read_csv(args.dris_csv)
+
+# Merge nutrient_df with dris_df on the 'Nutrient' column
+merged_df = pd.merge(nutrient_df, dris_df, how='left', left_on='Nutrient', right_on='Nutrient')
+
+# Calculate %EAR, %RDA, and %UL, truncated to one decimal place and appended with '%'
+merged_df['% EAR'] = merged_df.apply(lambda row: f"{(float(row['Amount']) / float(row['Highest EAR']) * 100):.1f}%" if row['Highest EAR'] != 'NE' and pd.notnull(row['Highest EAR']) else 'N/A', axis=1)
+merged_df['% RDA/AI'] = merged_df.apply(lambda row: f"{(float(row['Amount']) / float(row['Highest RDA/AI Males']) * 100):.1f}%" if pd.notnull(row['Highest RDA/AI Males']) else 'N/A', axis=1)
+merged_df['% UL'] = merged_df.apply(lambda row: f"{(float(row['Amount']) / float(row['Lowest UL']) * 100):.1f}%" if row['Lowest UL'] != 'ND' and pd.notnull(row['Lowest UL']) else 'N/A', axis=1)
+
+# Select relevant columns
+nutrient_final_df = merged_df[['Nutrient', 'Amount', 'Unit_x', '% EAR', '% RDA/AI', '% UL']]
+nutrient_final_df.columns = ['Nutrient', 'Amount', 'Unit', '% EAR', '% RDA/AI', '% UL']
 
 # Convert DataFrames to org-mode table format
 def df_to_org_table(df):
@@ -61,7 +82,7 @@ def df_to_org_table(df):
 
 # Create org-mode tables
 ingredients_table = df_to_org_table(ingredient_df)
-nutrients_table = df_to_org_table(nutrient_df)
+nutrients_table = df_to_org_table(nutrient_final_df)
 
 # Print the org-mode tables
 print("Ingredients Table:\n", ingredients_table)

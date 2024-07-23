@@ -1,0 +1,30 @@
+Nutrient,Highest EAR,Highest RDA/AI Males,Highest RDA/AI Females,Lowest UL,Unit
+Vitamin A,630,900,700,1700,μg
+Thiamin (B1),1.0,1.2,1.1,ND,mg
+Riboflavin (B2),1.1,1.3,1.1,ND,mg
+Niacin (B3),12,16,14,20,mg
+Pantothenic acid (B5),NE,5,5,ND,mg
+Vitamin B6,1.4,1.7,1.5,60,mg
+Biotin (B7),NE,30,30,ND,μg
+Folate (B9),330,400,400,600,μg
+Cobalamin (B12),2.0,2.4,2.4,ND,μg
+Vitamin C,75,90,75,1200,mg
+Vitamin D,10,20,20,100,μg
+α-tocopherol (Vitamin E),12,15,15,600,mg
+Vitamin K,NE,120,90,ND,μg
+Choline,NE,550,425,2000,mg
+Calcium,1100,1300,1300,2000,mg
+Chloride,NE,2300,2300,3400,mg
+Chromium,NE,35,25,ND,μg
+Copper,700,900,900,5000,μg
+Fluoride,NE,4,3,10,mg
+Iodine,95,150,150,600,μg
+Iron,8.1,11,18,40,mg
+Magnesium,350,420,360,350,mg
+Manganese,NE,2.3,1.8,6,mg
+Molybdenum,34,45,45,1100,μg
+Phosphorus,1055,1250,1250,3000,mg
+Potassium,NE,3400,2600,ND,mg
+Selenium,45,55,55,280,μg
+Sodium,NE,1500,1500,1800,mg
+Zinc,9.4,11,9,40,mg
