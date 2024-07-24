@@ -86,5 +86,5 @@ ingredients_table = df_to_org_table(ingredient_df)
 nutrients_table = df_to_org_table(nutrient_final_df)
 
 # Print the org-mode tables
-print(f"Ingredients:\n{ingredients_table}")
-print(f"Nutrients:\n{nutrients_table}")
+print(f"*** Ingredients\n{ingredients_table}")
+print(f"*** Nutrients\n{nutrients_table}")
